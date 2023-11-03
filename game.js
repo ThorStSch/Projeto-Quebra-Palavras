@@ -2,8 +2,8 @@ var gameSettings = {
   playerSpeed: 200,
 }
 
-const screenWidth = 600; // Largura fixa do jogo
-const screenHeight = Math.floor(screenWidth * (9 / 16)); // Proporção 16:9
+const screenWidth = 800; // Largura fixa do jogo
+const screenHeight = Math.floor(screenWidth * (9 / 18)); // Proporção 16:9
 
 
 
@@ -24,6 +24,7 @@ var config = {
           debug: false
       }
   }
+  
 }
 
 window.addEventListener('resize', function () {
