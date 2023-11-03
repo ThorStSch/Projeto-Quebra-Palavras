@@ -2,8 +2,10 @@ var gameSettings = {
   playerSpeed: 200,
 }
 
-const screenWidth = 800; // Largura fixa do jogo
-const screenHeight = Math.floor(screenWidth * (9 / 16)); // Proporção 16:9
+const screenWidth = 1280; // Largura fixa do jogo
+const screenHeight = 720//Math.floor(screenWidth * (9 / 16)); // Proporção 16:9
+
+
 
 var config = {
   type: Phaser.AUTO,
@@ -23,5 +25,12 @@ var config = {
       }
   }
 }
+
+window.addEventListener('resize', function () {
+  var newWidth = window.innerWidth;
+  var newHeight = window.innerHeight;
+  var scaleFactor = Math.min(newWidth / 1280, newHeight / 720);  // Use a resolução de referência
+  game.scale.resize(newWidth * scaleFactor, newHeight * scaleFactor);
+});
 
 var game = new Phaser.Game(config);
