@@ -189,7 +189,7 @@ class ModeOne extends Phaser.Scene {
                     this.somConfig.mute = true;}
             }
         });
-        this.incSom.setInteractive().on('pointerdown', () =>  {
+       /* this.incSom.setInteractive().on('pointerdown', () =>  {
             this.musicConfig.loop = false;
             if (this.musicConfig.volume < 1){
                 this.musicConfig.volume += 0.2;
@@ -218,7 +218,7 @@ class ModeOne extends Phaser.Scene {
                 this.music.play(this.musicConfig);
                 this.music.pause();
             }
-        });
+        }); */
 
         this.i = 0;
         this.frameTxt = this.add.bitmapText(this.frame1.x - 20, this.frame1.y - 15, "pixelFont", this.silabas[this.i][0], 30 );
