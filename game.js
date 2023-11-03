@@ -31,7 +31,7 @@ window.addEventListener('resize', function () {
   var newWidth = window.innerWidth;
   var newHeight = window.innerHeight;
   var scaleFactor = Math.min(newWidth / 1280, newHeight / 720);  // Use a resolução de referência
-  game.scale.resize(newWidth * scaleFactor, newHeight * scaleFactor);
+  this.scale.resize(newWidth * scaleFactor, newHeight * scaleFactor);
 });
 
 var game = new Phaser.Game(config);
