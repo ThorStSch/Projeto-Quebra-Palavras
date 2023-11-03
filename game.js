@@ -3,7 +3,7 @@ var gameSettings = {
 }
 
 const screenWidth = 800; // Largura fixa do jogo
-const screenHeight = Math.floor(screenWidth * (16 / 9)); // Proporção 16:9
+const screenHeight = Math.floor(screenWidth * (9 / 16)); // Proporção 16:9
 
 var config = {
   type: Phaser.AUTO,
