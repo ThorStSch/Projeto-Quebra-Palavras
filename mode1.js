@@ -130,7 +130,7 @@ class ModeOne extends Phaser.Scene {
             this.frameImagem.setScale((config.width/config.height)/2);}
             else {this.frameImagem.setScale((config.height/config.width)/2);}
         //this.frameImagem.setScale(.7)
-        this.frame1 = this.add.image(config.width, (config.height/100)*60,"frameOn");
+        this.frame1 = this.add.image((config.width/100)*5, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
             this.frame1.setScale((config.width/config.height)/10);}
             else {this.frame1.setScale((config.height/config.width)/4);}
@@ -236,9 +236,9 @@ class ModeOne extends Phaser.Scene {
         }); */
 
         this.i = 0;
-        this.frameTxt = this.add.bitmapText(this.frame1.x - 55, this.frame1.y - 20, "pixelFont", this.silabas[this.i][0], 54 );
+        this.frameTxt = this.add.bitmapText(this.frame1.x - 25, this.frame1.y - 20, "pixelFont", this.silabas[this.i][0], 54 );
         this.frameTxt.setTint(0x000000);
-        this.frameTxt2 = this.add.bitmapText(this.frame2.x - 55, this.frame2.y - 20, "pixelFont", this.silabas[this.i][1], 54 );
+        this.frameTxt2 = this.add.bitmapText(this.frame2.x - 25, this.frame2.y - 20, "pixelFont", this.silabas[this.i][1], 54 );
         this.frameTxt2.setTint(0x000000);
         this.imagensItens[this.i][0].setVisible(true)
         //this.i = this.i + 1;
@@ -371,15 +371,15 @@ class ModeOne extends Phaser.Scene {
 
     trocarBotão () {
         var randomX = Phaser.Math.Between(0, 1);
-        var num = 0;
         if (randomX == 0) {
-            num = 80;
+            this.frame1.x = (config.width/100)*25;
+            this.frame2.x = (config.width/100)*75;
+    
         } else {
-            num = -80;
+            this.frame1.x = (config.width/100)*75;
+            this.frame2.x = (config.width/100)*25;
+    
         }
-
-        this.frame1.x = config.width / 2 + num;
-        this.frame2.x = config.width / 2 - num;
 
         this.frameTxt.setPosition(this.frame1.x - 55, this.frameTxt.y);
         this.frameTxt2.setPosition(this.frame2.x - 55, this.frameTxt2.y);
