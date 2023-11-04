@@ -42,7 +42,7 @@ class Menu extends Phaser.Scene {
         delay: 0
     }
 
-    this.title = this.add.image(config.width / 2, config.height / 2 - 150, "title");
+    this.title = this.add.image(config.width / 2, config.height / 4 - 50, "title");
     this.title.setScale(1.5)
     this.play = this.add.image(config.width / 2, config.height / 2 - 40, "play");
     this.play.setScale(1.5);
