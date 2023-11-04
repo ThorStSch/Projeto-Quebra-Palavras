@@ -337,6 +337,7 @@ class ModeOne extends Phaser.Scene {
         this.confirm.setInteractive().on('pointerdown', () => {
             // Ação para a Opção 1
             if (selec2 == true && selec1 == true && aux == 2){
+                this.selectSound.play();
                 this.erro.setVisible(false);
                 this.imagensItens[this.i][0].setVisible(false)
                 console.log('resposta correta');
