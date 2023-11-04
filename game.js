@@ -9,8 +9,8 @@ const screenHeight = Math.floor(screenWidth * (9 / 6)); // Proporção 16:9
 
 var config = {
   type: Phaser.AUTO,
-  width: screenWidth,
-  height: screenHeight,
+  width: window.innerWidth,
+  height: window.innerHeight,
   scale: {
       mode: Phaser.Scale.SHOW_ALL,
       parent: 'index'
