@@ -126,11 +126,20 @@ class ModeOne extends Phaser.Scene {
 
        
         this.frameImagem = this.add.image(config.width / 2 , config.height / 2 - 110,"frameOn");
-        this.frameImagem.setScale(.7)
+        if (config.width > config.height ){
+            this.frameImagem.setScale((config.width/config.height));}
+            else {this.frameImagem.setScale((config.height/config.width));}
+        //this.frameImagem.setScale(.7)
         this.frame1 = this.add.image(0, config.height / 2 + 100,"frameOn");
-        this.frame1.setScale(.2)
+        if (config.width > config.height ){
+            this.frame1.setScale((config.width/config.height));}
+            else {this.frame1.setScale((config.height/config.width));}
+        //this.frame1.setScale(.2)
         this.frame2 = this.add.image(0, config.height / 2 + 100,"frameOn");
-        this.frame2.setScale(.2)
+        if (config.width > config.height ){
+            this.frame2.setScale((config.width/config.height));}
+            else {this.frame2.setScale((config.height/config.width));}
+        //this.frame2.setScale(.2)
         this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
         if (config.width > config.height ){
             this.confirm.setScale((config.width/config.height));}
