@@ -3,7 +3,7 @@ var gameSettings = {
 }
 
 const screenWidth = 720; // Largura fixa do jogo
-const screenHeight = Math.floor(screenWidth * (9 / 14)); // Proporção 16:9
+const screenHeight = Math.floor(screenWidth * (9 / 12)); // Proporção 16:9
 
 
 
