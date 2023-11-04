@@ -83,13 +83,13 @@ class ModeOne extends Phaser.Scene {
         this.openOptionsButton.setScale((config.width/config.height)/20);}
         else {this.openOptionsButton.setScale((config.height/config.width)/10);}
         this.openOptionsButton.setInteractive();
-        this.optionsGroup = this.add.container(config.width / 2, config.height / 2);
-        this.incSistem = this.add.image(60,60, "inc");
-        this.decSistem = this.add.image(0,60, "dec");
+        this.optionsGroup = this.add.container(0, 0);
+        this.incSistem = this.add.image((config.width/100)*55 ,(config.height/100)*58, "inc");
+        this.decSistem = this.add.image((config.width/100)*65 ,(config.height/100)*58, "dec");
         //this.incSom = this.add.image(60,0, "inc");
         //this.decSom = this.add.image(0,0, "dec");
-        this.volumeConf = this.add.image(0,-60, "volume");
-        this.somSistem = this.add.bitmapText(-150, 40, "pixelFont", "Sistema: ", 42);
+        this.volumeConf = this.add.image(config.width / 2,(config.height/100)*35, "volume");
+        this.somSistem = this.add.bitmapText((config.width/100)*35, (config.height/100)*55, "pixelFont", "Sistema: ", 42);
         //this.musicaSom = this.add.bitmapText(-95, -15, "pixelFont", "Som: ", 42);
         this.optionsGroup.add(this.incSistem);
         this.optionsGroup.add(this.decSistem);
