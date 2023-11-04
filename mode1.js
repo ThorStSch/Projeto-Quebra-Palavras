@@ -346,7 +346,7 @@ class ModeOne extends Phaser.Scene {
                 if (this.i < 10){this.trocarBotão();}
                 else {
                     var timerNow = this.tempo;
-                    this.pontos = 105 - timerNow;
+                    this.pontos = 300 - timerNow;
                     console.log(this.pontos);
                     this.scene.switch("final")
                     this.scene.stop();
