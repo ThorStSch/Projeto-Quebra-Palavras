@@ -131,8 +131,12 @@ class ModeOne extends Phaser.Scene {
         this.frame1.setScale(.2)
         this.frame2 = this.add.image(0, config.height / 2 + 100,"frameOn");
         this.frame2.setScale(.2)
-        this.confirm = this.add.image(config.width / 2, config.height - 150, "confirmar");
-        this.confirmTxT = this.add.bitmapText(this.confirm.x - 15, this.confirm.y - 20, "pixelFont", "OK", 42 ); 
+        this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
+        if (config.width > config.height ){
+            this.confirm.setScale((config.width/config.height));}
+            else {this.confirm.setScale((config.height/config.width)/10);}
+        this.confirmTxT = this.add.bitmapText(this.confirm.x - 25, this.confirm.y - 35, "pixelFont", "OK", 42 );
+        this.confirmTxT.setScale(1.8)
 
         this.silabas = [
             ["GA","TO"],
