@@ -109,7 +109,7 @@ class ModeOne extends Phaser.Scene {
         this.modal.setVisible(false); // Inicialmente invisível
         this.modal.setDepth(2);
 
-        this.imagens = this.add.container(config.width / 2, config.height / 2 - 100);
+        this.imagens = this.add.container((config.width/100)*50  , (config.height/100)*25);
         this.imagens.add(this.gato);
         this.imagens.add(this.cama);
         this.imagens.add(this.folha)
@@ -130,12 +130,12 @@ class ModeOne extends Phaser.Scene {
             this.frameImagem.setScale((config.width/config.height)/2);}
             else {this.frameImagem.setScale((config.height/config.width)/2);}
         //this.frameImagem.setScale(.7)
-        this.frame1 = this.add.image((config.width/100)*15, (config.height/100)*60,"frameOn");
+        this.frame1 = this.add.image(config.width, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
             this.frame1.setScale((config.width/config.height)/10);}
             else {this.frame1.setScale((config.height/config.width)/4);}
         //this.frame1.setScale(.2)
-        this.frame2 = this.add.image((config.width/100)*65, (config.height/100)*60,"frameOn");
+        this.frame2 = this.add.image((config.width/100)*75, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
             this.frame2.setScale((config.width/config.height)/10);}
             else {this.frame2.setScale((config.height/config.width)/4);}

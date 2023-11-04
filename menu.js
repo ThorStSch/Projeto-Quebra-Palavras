@@ -86,8 +86,10 @@ class Menu extends Phaser.Scene {
     this.modesGroup.add(this.easy);
     //this.modesGroup.add(this.normal);
     //this.modesGroup.add(this.hard);
-
-    this.modesGroup.setScale(1);
+    if (config.width > config.height ){
+        this.modesGroup.setScale((config.width/config.height));}
+        else {this.modesGroup.setScale((config.height/config.width));}
+    //this.modesGroup.setScale();
     this.modesGroup.setInteractive();
     this.modesGroup.setDepth(2);
 
