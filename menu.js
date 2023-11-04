@@ -92,7 +92,7 @@ class Menu extends Phaser.Scene {
     this.modesGroup.setVisible(false);
 
     this.music.play(this.musicConfig);
-    this.modal = this.add.rectangle(0, 0, 800, 600, 0x000000, 0.9); 
+    this.modal = this.add.rectangle(0, 0,  window.innerWidth, window.innerHeight, 0x000000, 0.9); 
     this.modal.setOrigin(0);
     this.modal.setInteractive(); // Torna o modal interativo
     this.modal.setVisible(false); // Inicialmente invisível
