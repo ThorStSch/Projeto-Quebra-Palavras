@@ -134,7 +134,7 @@ class ModeOne extends Phaser.Scene {
         this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
         if (config.width > config.height ){
             this.confirm.setScale((config.width/config.height));}
-            else {this.confirm.setScale((config.height/config.width)*20);}
+            else {this.confirm.setScale((config.height/config.width)*5);}
         this.confirmTxT = this.add.bitmapText(this.confirm.x - 25, this.confirm.y - 35, "pixelFont", "OK", 42 );
         this.confirmTxT.setScale(1.8)
 
