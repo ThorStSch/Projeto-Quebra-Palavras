@@ -132,12 +132,12 @@ class ModeOne extends Phaser.Scene {
         //this.frameImagem.setScale(.7)
         this.frame1 = this.add.image(0, config.height / 2 + 100,"frameOn");
         if (config.width > config.height ){
-            this.frame1.setScale((config.width/config.height));}
+            this.frame1.setScale((config.width/config.height)/10);}
             else {this.frame1.setScale((config.height/config.width)/4);}
         //this.frame1.setScale(.2)
         this.frame2 = this.add.image(0, config.height / 2 + 100,"frameOn");
         if (config.width > config.height ){
-            this.frame2.setScale((config.width/config.height));}
+            this.frame2.setScale((config.width/config.height)/10);}
             else {this.frame2.setScale((config.height/config.width)/4);}
         //this.frame2.setScale(.2)
         this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
@@ -286,13 +286,17 @@ class ModeOne extends Phaser.Scene {
         // Lógica para a seleção de opções
         this.frame1.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
-            this.frame1.setScale(.25);
+            if (config.width > config.height ){
+                this.frame1.setScale((config.width/config.height)/10+0.05);}
+                else {this.frame1.setScale((config.height/config.width)/4);}
             this.frameTxt.setScale(1.6);
             
         });
         
         this.frame1.setInteractive().on('pointerout', () => {
-            this.frame1.setScale(.2);
+            if (config.width > config.height ){
+                this.frame1.setScale((config.width/config.height)/10);}
+                else {this.frame1.setScale((config.height/config.width)/4);}
             this.frameTxt.setScale(1.3);
         });
 
@@ -316,13 +320,17 @@ class ModeOne extends Phaser.Scene {
         // Lógica para a seleção de opções
         this.frame2.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
-            this.frame2.setScale(.25);
+            if (config.width > config.height ){
+                this.frame2.setScale((config.width/config.height)/10+0.05);}
+                else {this.frame2.setScale((config.height/config.width)/4);}
             this.frameTxt2.setScale(1.6);
             
         });
         
         this.frame2.setInteractive().on('pointerout', () => {
-            this.frame2.setScale(.2);
+            if (config.width > config.height ){
+                this.frame2.setScale((config.width/config.height)/10);}
+                else {this.frame2.setScale((config.height/config.width)/4);}
             this.frameTxt2.setScale(1.3);
         });  
 
@@ -338,7 +346,7 @@ class ModeOne extends Phaser.Scene {
                 if (this.i < 10){this.trocarBotão();}
                 else {
                     var timerNow = this.tempo;
-                    this.pontos = 115 - timerNow;
+                    this.pontos = 105 - timerNow;
                     console.log(this.pontos);
                     this.scene.switch("final")
                     this.scene.stop();
