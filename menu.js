@@ -43,11 +43,12 @@ class Menu extends Phaser.Scene {
     }
 
     this.title = this.add.image(config.width / 2, config.height / 2 - 150, "title");
+    this.title.setScale(1.5)
     this.play = this.add.image(config.width / 2, config.height / 2 - 40, "play");
-    this.play.setScale(.8);
+    this.play.setScale(1.5);
     this.play.setInteractive();
-    this.openOptionsButton = this.add.image(config.width / 2, config.height - 40, "config");
-    this.openOptionsButton.setScale(0.1);
+    this.openOptionsButton = this.add.image(config.width / 2, (config.height / 4)*3, "config");
+    this.openOptionsButton.setScale(0.15);
     this.openOptionsButton.setInteractive();
     
     /*
@@ -85,7 +86,7 @@ class Menu extends Phaser.Scene {
     //this.modesGroup.add(this.normal);
     //this.modesGroup.add(this.hard);
 
-    this.modesGroup.setScale(.5);
+    this.modesGroup.setScale(1);
     this.modesGroup.setInteractive();
     this.modesGroup.setDepth(2);
 
@@ -200,13 +201,13 @@ class Menu extends Phaser.Scene {
         });
 
         this.play.setInteractive().on('pointerover', () => {
-            this.play.setScale(1);
+            this.play.setScale(1.7);
             this.mouseOver.play(this.somConfig);
 
         });
 
         this.play.setInteractive().on('pointerout', () => {
-            this.play.setScale(.8);
+            this.play.setScale(1.5);
         });
 
         // Lógica para a seleção de opções

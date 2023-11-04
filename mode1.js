@@ -101,7 +101,7 @@ class ModeOne extends Phaser.Scene {
         this.optionsGroup.setDepth(3); // Defina a profundidade (z-index) maior para as opções
         this.optionsGroup.setVisible(false); // Inicialmente invisível
 
-        this.modal = this.add.rectangle(0, 0, 800, 600, 0x000000, 0.9); 
+        this.modal = this.add.rectangle(0, 0, config.width, config.height, 0x000000, 0.9); 
         this.modal.setOrigin(0);
         this.modal.setInteractive(); // Torna o modal interativo
         this.modal.setVisible(false); // Inicialmente invisível
