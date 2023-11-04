@@ -79,7 +79,9 @@ class ModeOne extends Phaser.Scene {
             delay: 0
         }
         this.openOptionsButton = this.add.image(config.width / 2, (config.height/100)*90, "config");
-        this.openOptionsButton.setScale((config.width/config.height)/100 * 5);
+        if (config.width > config.height ){
+        this.openOptionsButton.setScale((config.width/config.height)/20);}
+        else {this.openOptionsButton.setScale((config.height/config.width)/20);}
         this.openOptionsButton.setInteractive();
         this.optionsGroup = this.add.container(config.width / 2, config.height / 2);
         this.incSistem = this.add.image(60,60, "inc");
