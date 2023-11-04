@@ -40,16 +40,16 @@ class ModeOne extends Phaser.Scene {
         this.caju.setScale(.4);
         this.rabo = this.add.image(0, 0, "rabo");
         this.rabo.setVisible(false);
-        this.rabo.setScale(.4);
+        this.rabo.setScale(.2);
         this.telha = this.add.image(0, 0, "telha");
         this.telha.setVisible(false);
-        this.telha.setScale(.4)
+        this.telha.setScale(.3)
         this.dente = this.add.image(0, 0, "dente");
         this.dente.setVisible(false);
-        this.dente.setScale(.4);
+        this.dente.setScale(.2);
         this.cacau = this.add.image(0, 0, "cacau");
         this.cacau.setVisible(false);
-        this.cacau.setScale(.4);
+        this.cacau.setScale(.3);
 
         this.mouseOver = this.sound.add("audio_mouseOver");
         this.selectSound = this.sound.add("audio_select");
@@ -109,7 +109,7 @@ class ModeOne extends Phaser.Scene {
         this.modal.setVisible(false); // Inicialmente invisível
         this.modal.setDepth(2);
 
-        this.imagens = this.add.container(config.width / 2, config.height / 2 - 80);
+        this.imagens = this.add.container(config.width / 2, config.height / 2 - 100);
         this.imagens.add(this.gato);
         this.imagens.add(this.cama);
         this.imagens.add(this.folha)
@@ -134,7 +134,7 @@ class ModeOne extends Phaser.Scene {
         this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
         if (config.width > config.height ){
             this.confirm.setScale((config.width/config.height));}
-            else {this.confirm.setScale((config.height/config.width)/10);}
+            else {this.confirm.setScale((config.height/config.width)/20);}
         this.confirmTxT = this.add.bitmapText(this.confirm.x - 25, this.confirm.y - 35, "pixelFont", "OK", 42 );
         this.confirmTxT.setScale(1.8)
 
@@ -227,9 +227,9 @@ class ModeOne extends Phaser.Scene {
         }); */
 
         this.i = 0;
-        this.frameTxt = this.add.bitmapText(this.frame1.x - 40, this.frame1.y - 20, "pixelFont", this.silabas[this.i][0], 64 );
+        this.frameTxt = this.add.bitmapText(this.frame1.x - 55, this.frame1.y - 20, "pixelFont", this.silabas[this.i][0], 54 );
         this.frameTxt.setTint(0x000000);
-        this.frameTxt2 = this.add.bitmapText(this.frame2.x - 40, this.frame2.y - 20, "pixelFont", this.silabas[this.i][1], 64 );
+        this.frameTxt2 = this.add.bitmapText(this.frame2.x - 55, this.frame2.y - 20, "pixelFont", this.silabas[this.i][1], 54 );
         this.frameTxt2.setTint(0x000000);
         this.imagensItens[this.i][0].setVisible(true)
         //this.i = this.i + 1;
@@ -364,8 +364,8 @@ class ModeOne extends Phaser.Scene {
         this.frame1.x = config.width / 2 + num;
         this.frame2.x = config.width / 2 - num;
 
-        this.frameTxt.setPosition(this.frame1.x - 20, this.frameTxt.y);
-        this.frameTxt2.setPosition(this.frame2.x - 20, this.frameTxt2.y);
+        this.frameTxt.setPosition(this.frame1.x - 55, this.frameTxt.y);
+        this.frameTxt2.setPosition(this.frame2.x - 55, this.frameTxt2.y);
         this.frameTxt.setText(this.silabas[this.i][0]);
         this.frameTxt2.setText(this.silabas[this.i][1]);
     }
