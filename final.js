@@ -12,12 +12,12 @@ class Final extends Phaser.Scene {
         const sceneMode1 = this.scene.get('mode1');
         console.log(sceneMode1.pontos);
         this.frameImagem = this.add.image(config.width / 2 , config.height / 2 - 60,"frameOn");
-        this.frameImagem.setScale(.7);
+        this.frameImagem.setScale(1.4);
 
         this.pontuação = this.add.bitmapText(config.width / 2-100, config.height/2-80, "pixelFont", "pontos: " + sceneMode1.pontos, 46);
         this.pontuação.setTint(0x000000);
         this.add.image(config.width / 2 , config.height / 2 , 'vitoria')
-            .setScale(.5)
+            .setScale(1)
             .setInteractive()
             .on('pointerdown', () => {
         // Redirecione para o URL do formulário do Google
