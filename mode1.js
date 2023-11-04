@@ -78,8 +78,8 @@ class ModeOne extends Phaser.Scene {
             loop: false,
             delay: 0
         }
-        this.openOptionsButton = this.add.image(config.width / 2, config.height - 40, "config");
-        this.openOptionsButton.setScale(0.1);
+        this.openOptionsButton = this.add.image(config.width / 2, config.height - 60, "config");
+        this.openOptionsButton.setScale(0.15);
         this.openOptionsButton.setInteractive();
         this.optionsGroup = this.add.container(config.width / 2, config.height / 2);
         this.incSistem = this.add.image(60,60, "inc");
@@ -120,16 +120,16 @@ class ModeOne extends Phaser.Scene {
         this.imagens.add(this.cacau);
         this.imagens.setInteractive();
         this.imagens.setDepth(1);
-        this.imagens.setScale(.4)
+        this.imagens.setScale(1);
 
        
-        this.frameImagem = this.add.image(config.width / 2 , config.height / 2 - 90,"frameOn");
-        this.frameImagem.setScale(.4)
-        this.frame1 = this.add.image(0, config.height / 2 + 50,"frameOn");
-        this.frame1.setScale(.1)
-        this.frame2 = this.add.image(0, config.height / 2 + 50,"frameOn");
-        this.frame2.setScale(.1)
-        this.confirm = this.add.image(config.width / 2, config.height - 100, "confirmar");
+        this.frameImagem = this.add.image(config.width / 2 , config.height / 2 - 110,"frameOn");
+        this.frameImagem.setScale(.7)
+        this.frame1 = this.add.image(0, config.height / 2 + 100,"frameOn");
+        this.frame1.setScale(.2)
+        this.frame2 = this.add.image(0, config.height / 2 + 100,"frameOn");
+        this.frame2.setScale(.2)
+        this.confirm = this.add.image(config.width / 2, config.height - 150, "confirmar");
         this.confirmTxT = this.add.bitmapText(this.confirm.x - 15, this.confirm.y - 20, "pixelFont", "OK", 42 ); 
 
         this.silabas = [
@@ -221,9 +221,9 @@ class ModeOne extends Phaser.Scene {
         }); */
 
         this.i = 0;
-        this.frameTxt = this.add.bitmapText(this.frame1.x - 20, this.frame1.y - 15, "pixelFont", this.silabas[this.i][0], 30 );
+        this.frameTxt = this.add.bitmapText(this.frame1.x - 40, this.frame1.y - 20, "pixelFont", this.silabas[this.i][0], 64 );
         this.frameTxt.setTint(0x000000);
-        this.frameTxt2 = this.add.bitmapText(this.frame2.x - 20, this.frame2.y - 15, "pixelFont", this.silabas[this.i][1], 30 );
+        this.frameTxt2 = this.add.bitmapText(this.frame2.x - 40, this.frame2.y - 20, "pixelFont", this.silabas[this.i][1], 64 );
         this.frameTxt2.setTint(0x000000);
         this.imagensItens[this.i][0].setVisible(true)
         //this.i = this.i + 1;
@@ -271,14 +271,14 @@ class ModeOne extends Phaser.Scene {
         // Lógica para a seleção de opções
         this.frame1.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
-            this.frame1.setScale(.13);
-            this.frameTxt.setScale(1.3);
+            this.frame1.setScale(.25);
+            this.frameTxt.setScale(1.6);
             
         });
         
         this.frame1.setInteractive().on('pointerout', () => {
-            this.frame1.setScale(.1);
-            this.frameTxt.setScale(1);
+            this.frame1.setScale(.2);
+            this.frameTxt.setScale(1.3);
         });
 
         this.frame2.setInteractive().on('pointerdown', () => {
@@ -301,14 +301,14 @@ class ModeOne extends Phaser.Scene {
         // Lógica para a seleção de opções
         this.frame2.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
-            this.frame2.setScale(.13);
-            this.frameTxt2.setScale(1.3);
+            this.frame2.setScale(.25);
+            this.frameTxt2.setScale(1.6);
             
         });
         
         this.frame2.setInteractive().on('pointerout', () => {
-            this.frame2.setScale(.1);
-            this.frameTxt2.setScale(1);
+            this.frame2.setScale(.2);
+            this.frameTxt2.setScale(1.3);
         });  
 
         this.confirm.setInteractive().on('pointerdown', () => {

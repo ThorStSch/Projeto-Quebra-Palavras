@@ -75,6 +75,7 @@ class Menu extends Phaser.Scene {
     this.optionsGroup.setInteractive();
     this.optionsGroup.setDepth(2); // Defina a profundidade (z-index) maior para as opções
     this.optionsGroup.setVisible(false); // Inicialmente invisível
+    this.optionsGroup.setScale(1.5);
 
     this.modesGroup = this.add.container(config.width / 2, config.height / 2);
     this.easy = this.add.image(0,-60, "easy");
