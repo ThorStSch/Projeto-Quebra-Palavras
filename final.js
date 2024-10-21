@@ -26,6 +26,8 @@ class Final extends Phaser.Scene {
         
         this.frameImagem.setInteractive().on('pointerdown', () => {
             this.scene.switch("menu");
+            this.scene.stop();
+            return;
         })
 
     }

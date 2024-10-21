@@ -11,7 +11,7 @@ class Menu extends Phaser.Scene {
     this.background.setOrigin(0.5,0.5);
     this.background.setScale(1.7);
     this.background.x = config.width / 2;
-    this.background.y = config.height / 2;
+    this.background.y = config.height / 2;0
 
     this.mouseOver = this.sound.add("audio_mouseOver");
     this.selectSound = this.sound.add("audio_select");
@@ -24,58 +24,68 @@ class Menu extends Phaser.Scene {
 
     this.musicConfig = {
         mute: false,
-        volume: 1,
+        volume: .6,
         rate: 1,
         detune: 0,
         seek: 0,
-        loop: false,
+        loop: true,
         delay: 0
     }
-    
+
     this.somConfig = {
         mute: false,
-        volume: 1,
+        volume: .6,
         rate: 1,
         detune: 0,
         seek: 0,
         loop: false,
         delay: 0
     }
+
+    // Define o estado inicial do som
+    this.musicOn = true;
+    this.soundOn = true;
+    
+    
 
     this.title = this.add.image(config.width / 2, config.height / 4 - 50, "title");
     this.title.setScale(1.5)
     this.play = this.add.image(config.width / 2, config.height / 2 - 40, "play");
     this.play.setScale(1.5);
     this.play.setInteractive();
-    this.openOptionsButton = this.add.image(config.width / 2, (config.height / 4)*3, "config");
-    this.openOptionsButton.setScale(0.15);
-    this.openOptionsButton.setInteractive();
+
+    if(this.musicOn){
+    this.musicButton = this.add.image(config.width / 2+40, (config.height / 4)*3, "musicaOn")
+    }
+    else
+    {
+    this.musicButton = this.add.image(config.width / 2+40, (config.height / 4)*3, "musicaOff")   
+    }
+    this.musicButton.setInteractive();
+    this.musicButton.on('pointerdown', () => {
+        this.toggleMusic();
+      });
+    this.musicButton.setScale(0.10);
+
+    if(this.soundOn){
+        this.soundButton = this.add.image(config.width / 2-40, (config.height / 4)*3, "somOn")
+        }
+        else
+        {
+        this.soundButton = this.add.image(config.width / 2-40, (config.height / 4)*3, "somOff")   
+        }
+        this.soundButton.setInteractive();
+        this.soundButton.on('pointerdown', () => {
+        this.toggleSound();
+      });
+    this.soundButton.setScale(0.10);
+    
     
     /*
     this.records = this.add.image(config.width / 2, config.height / 2 + 20, "records");
     this.records.setScale(.8);
     this.records.setInteractive();
 */
-    this.optionsGroup = this.add.container(config.width / 2, config.height / 2);
-    this.incSistem = this.add.image(60,60, "inc");
-    this.decSistem = this.add.image(0,60, "dec");
-    this.incSom = this.add.image(60,0, "inc");
-    this.decSom = this.add.image(0,0, "dec");
-    this.volumeConf = this.add.image(0,-60, "volume");
-    this.somSistem = this.add.bitmapText(-150, 40, "pixelFont", "Sistema: ", 42);
-    this.musicaSom = this.add.bitmapText(-95, -15, "pixelFont", "Som: ", 42);
-    this.optionsGroup.add(this.incSistem);
-    this.optionsGroup.add(this.decSistem);
-    this.optionsGroup.add(this.incSom);
-    this.optionsGroup.add(this.decSom);
-    this.optionsGroup.add(this.volumeConf);
-    this.optionsGroup.add(this.somSistem);
-    this.optionsGroup.add(this.musicaSom);
-
-    this.optionsGroup.setInteractive();
-    this.optionsGroup.setDepth(2); // Defina a profundidade (z-index) maior para as opções
-    this.optionsGroup.setVisible(false); // Inicialmente invisível
-    this.optionsGroup.setScale(1.5);
 
     this.modesGroup = this.add.container(config.width / 2, config.height / 2);
     this.easy = this.add.image(0,-60, "easy");
@@ -105,11 +115,10 @@ class Menu extends Phaser.Scene {
     this.modal.setInteractive().on('pointerdown', () => {
         this.modal.setVisible(false); // Oculta o modal
         this.modesGroup.setVisible(false); // Oculta a caixa de diálogo de opções
-        this.optionsGroup.setVisible(false);
-        this.music.resume(this.musicConfig);
-        var teste = this.level;
-        console.log(teste);
+  
     });
+
+
 
   /*
     this.records.setInteractive().on('pointerover', () =>  {
@@ -126,60 +135,10 @@ class Menu extends Phaser.Scene {
         this.selectSound.play(this.somConfig);
     });
     */
-    this.openOptionsButton.setInteractive().on('pointerdown', () =>  {
+   /*  this.openOptionsButton.setInteractive().on('pointerdown', () =>  {
         this.modal.setVisible(true); // Torna o modal visível
         this.optionsGroup.setVisible(true); // Torna a caixa de diálogo de opções visível
-    });
-
-    this.incSistem.setInteractive().on('pointerdown', () =>  {
-        if (this.somConfig.volume < 1){
-            this.somConfig.volume += 0.2;
-            console.log(this.somConfig.volume);
-            this.audioTest.play(this.somConfig);
-            if (this.somConfig.volume >= 0.2){
-                this.somConfig.mute = false;}
-        }
-    });
-    this.decSistem.setInteractive().on('pointerdown', () =>  {
-        if (this.somConfig.volume >= 0.2){
-            this.somConfig.volume -= 0.2;
-            console.log(this.somConfig.volume);
-            this.audioTest.play(this.somConfig);
-            if (this.somConfig.volume < 0.2){
-                this.somConfig.volume = 0;
-                this.somConfig.mute = true;}
-        }
-    });
-    this.incSom.setInteractive().on('pointerdown', () =>  {
-        this.musicConfig.loop = false;
-        if (this.musicConfig.volume < 1){
-            this.musicConfig.volume += 0.2;
-            console.log(this.musicConfig.volume);
-            this.audioTest.play(this.musicConfig);
-            if (this.musicConfig.volume >= 0.2){
-                this.musicConfig.mute = false;
-            }
-            this.musicConfig.loop = true;
-            this.music.play(this.musicConfig);
-            this.music.pause();
-        }
-        
-    });
-    this.decSom.setInteractive().on('pointerdown',  () =>  {
-        this.musicConfig.loop = false;
-        if (this.musicConfig.volume >= 0.2){
-            this.musicConfig.volume -=  0.2;
-            console.log(this.musicConfig.volume);
-            this.audioTest.play(this.musicConfig);
-            if (this.musicConfig.volume < 0.2){
-                this.musicConfig.volume = 0;
-                this.musicConfig.mute = true;
-            }
-            this.musicConfig.loop = true;
-            this.music.play(this.musicConfig);
-            this.music.pause();
-        }
-    });
+    }); */
 
     this.selectGameMode();
 
@@ -263,6 +222,30 @@ class Menu extends Phaser.Scene {
                 this.scene.start("mode3");
         });
         */
+    }
+
+    toggleMusic() {
+        if (this.musicOn) {
+          this.musicOn = false;
+          this.sound.pauseAll(); // Pausa a música
+          this.musicButton.setTexture("musicaOff")
+        } else {
+          this.musicOn = true;
+          this.sound.resumeAll(); // Retoma a música
+          this.musicButton.setTexture("musicaOn")
+        }
+    }
+
+    toggleSound() {
+        if (this.soundOn) {
+          this.soundOn = false;
+          this.somConfig.mute = true; // silencia os sons
+          this.soundButton.setTexture("somOff")
+        } else {
+          this.soundOn = true;
+          this.somConfig.mute = false // desilencia os sons
+          this.soundButton.setTexture("somOn")
+        }
     }
   
 }

@@ -1,11 +1,12 @@
 class ModeOne extends Phaser.Scene {
+
     constructor() {
         super("mode1");
     }
 
-
     //Dissílabas
     create () {
+        
         this.background = this.add.tileSprite(0,0, config.width, config.height, "background");
         this.background.setOrigin(0.5,0.5);
         this.background.setScale(1.7);
@@ -68,40 +69,51 @@ class ModeOne extends Phaser.Scene {
             loop: true,
             delay: 0
         }*/
-        
+
+        const sceneMenu = this.scene.get('menu');
+        this.soundOn = sceneMenu.soundOn;
+        this.musicOn = sceneMenu.musicOn;
+        console.log(this.somAnterior);
+
         this.somConfig = {
-            mute: false,
-            volume: 1,
-            rate: 1,
-            detune: 0,
-            seek: 0,
-            loop: false,
-            delay: 0
+                mute: sceneMenu.somConfig.mute,
+                volume: .6,
+                rate: 1,
+                detune: 0,
+                seek: 0,
+                loop: false,
+                delay: 0
+            }
+        
+
+        
+        if(this.soundOn){
+            this.soundButton = this.add.image(config.width / 2-40, (config.height/100)*90, "somOn");
         }
-        this.openOptionsButton = this.add.image(config.width / 2, (config.height/100)*90, "config");
+        else{
+            this.soundButton = this.add.image(config.width / 2-40, (config.height/100)*90, "somOff");
+        }
         if (config.width > config.height ){
-        this.openOptionsButton.setScale((config.width/config.height)/20);}
-        else {this.openOptionsButton.setScale((config.height/config.width)/10);}
-        this.openOptionsButton.setInteractive();
-        this.optionsGroup = this.add.container(0, 0);
-        this.incSistem = this.add.image((config.width/100)*55 ,(config.height/100)*58, "inc");
-        this.decSistem = this.add.image((config.width/100)*65 ,(config.height/100)*58, "dec");
-        //this.incSom = this.add.image(60,0, "inc");
-        //this.decSom = this.add.image(0,0, "dec");
-        this.volumeConf = this.add.image(config.width / 2,(config.height/100)*35, "volume");
-        this.somSistem = this.add.bitmapText((config.width/100)*35, (config.height/100)*55, "pixelFont", "Sistema: ", 42);
-        //this.musicaSom = this.add.bitmapText(-95, -15, "pixelFont", "Som: ", 42);
-        this.optionsGroup.add(this.incSistem);
-        this.optionsGroup.add(this.decSistem);
-        //this.optionsGroup.add(this.incSom);
-        //this.optionsGroup.add(this.decSom);
-        this.optionsGroup.add(this.volumeConf);
-        this.optionsGroup.add(this.somSistem);
-        //this.optionsGroup.add(this.musicaSom);
-    
-        this.optionsGroup.setInteractive();
-        this.optionsGroup.setDepth(3); // Defina a profundidade (z-index) maior para as opções
-        this.optionsGroup.setVisible(false); // Inicialmente invisível
+        this.soundButton.setScale((config.width/config.height)/20);}
+        else {this.soundButton.setScale((config.height/config.width)/10);}
+        this.soundButton.setScale(0.10);
+        this.soundButton.on('pointerdown', () => {
+            this.toggleSound();
+          });
+        this.soundButton.setInteractive();
+
+        if(this.musicOn){
+        this.musicButton = this.add.image(config.width / 2+40, (config.height/100)*90, "musicaOn");}
+        else{this.musicButton = this.add.image(config.width / 2+40, (config.height/100)*90, "musicaOff");}
+        if (config.width > config.height ){
+        this.musicButton.setScale((config.width/config.height)/20);}
+        else {this.musicButton.setScale((config.height/config.width)/10);}
+        this.musicButton.setScale(0.10);
+        this.musicButton.on('pointerdown', () => {
+            this.toggleMusic();
+          });
+        this.musicButton.setInteractive();
+
 
         this.modal = this.add.rectangle(0, 0, config.width, config.height, 0x000000, 0.9); 
         this.modal.setOrigin(0);
@@ -173,67 +185,6 @@ class ModeOne extends Phaser.Scene {
             [this.cacau]
         ];
 
-        this.modal.setInteractive().on('pointerdown', () => {
-            this.modal.setVisible(false); // Oculta o modal
-            this.optionsGroup.setVisible(false);
-            var teste = this.level;
-            console.log(teste);
-        });
-
-        this.openOptionsButton.setInteractive().on('pointerdown', () =>  {
-            this.modal.setVisible(true); // Torna o modal visível
-            this.optionsGroup.setVisible(true); // Torna a caixa de diálogo de opções visível
-        });
-    
-        this.incSistem.setInteractive().on('pointerdown', () =>  {
-            if (this.somConfig.volume < 1){
-                this.somConfig.volume += 0.2;
-                console.log(this.somConfig.volume);
-                this.audioTest.play(this.somConfig);
-                if (this.somConfig.volume >= 0.2){
-                    this.somConfig.mute = false;}
-            }
-        });
-        this.decSistem.setInteractive().on('pointerdown', () =>  {
-            if (this.somConfig.volume >= 0.2){
-                this.somConfig.volume -= 0.2;
-                console.log(this.somConfig.volume);
-                this.audioTest.play(this.somConfig);
-                if (this.somConfig.volume < 0.2){
-                    this.somConfig.volume = 0;
-                    this.somConfig.mute = true;}
-            }
-        });
-       /* this.incSom.setInteractive().on('pointerdown', () =>  {
-            this.musicConfig.loop = false;
-            if (this.musicConfig.volume < 1){
-                this.musicConfig.volume += 0.2;
-                console.log(this.musicConfig.volume);
-                this.audioTest.play(this.musicConfig);
-                if (this.musicConfig.volume >= 0.2){
-                    this.musicConfig.mute = false;
-                }
-                this.musicConfig.loop = true;
-                this.music.play(this.musicConfig);
-                this.music.pause();
-            }
-            
-        });
-        this.decSom.setInteractive().on('pointerdown',  () =>  {
-            this.musicConfig.loop = false;
-            if (this.musicConfig.volume >= 0.2){
-                this.musicConfig.volume -=  0.2;
-                console.log(this.musicConfig.volume);
-                this.audioTest.play(this.musicConfig);
-                if (this.musicConfig.volume < 0.2){
-                    this.musicConfig.volume = 0;
-                    this.musicConfig.mute = true;
-                }
-                this.musicConfig.loop = true;
-                this.music.play(this.musicConfig);
-                this.music.pause();
-            }
-        }); */
 
         this.i = 0;
         this.frameTxt = this.add.bitmapText(this.frame1.x - 25, this.frame1.y - 20, "pixelFont", this.silabas[this.i][0], 54 );
@@ -337,14 +288,14 @@ class ModeOne extends Phaser.Scene {
         this.confirm.setInteractive().on('pointerdown', () => {
             // Ação para a Opção 1
             if (selec2 == true && selec1 == true && aux == 2){
-                this.selectSound.play();
+                this.selectSound.play(this.somConfig);
                 this.erro.setVisible(false);
                 this.imagensItens[this.i][0].setVisible(false)
                 console.log('resposta correta');
                 this.frame2.setTexture("frameOff");
                 this.i = this.i + 1;
                 //alterar para i < tamanho do array
-                if (this.i < 10){this.trocarBotão();}
+                if (this.i < 10){this.trocarBotão();}//Fim do jogo
                 else {
                     var timerNow = this.tempo;
                     this.pontos = 300 - timerNow;
@@ -394,5 +345,29 @@ class ModeOne extends Phaser.Scene {
         this.textoTempo.setText('Tempo: ' + this.tempo);
       }
     
+    toggleMusic() {
+        if (this.musicOn) {
+          this.musicOn = false;
+          this.sound.pauseAll(); // Pausa a música
+          this.musicButton.setTexture("musicaOff")
+        } else {
+          this.musicOn = true;
+          this.sound.resumeAll(); // Retoma a música
+          this.musicButton.setTexture("musicaOn")
+        }
+    }
+
+    toggleSound() {
+        if (this.soundOn) {
+          this.soundOn = false;
+          this.somConfig.mute = true; // silencia os sons
+          this.soundButton.setTexture("somOff")
+        } else {
+          this.soundOn = true;
+          this.somConfig.mute = false // desilencia os sons
+          this.soundButton.setTexture("somOn")
+        }
+    }
+  
     
 }

@@ -127,6 +127,26 @@ class Loading extends Phaser.Scene {
         frameHeight: 16
       })
 
+      this.load.image("somOn", "assets/images/somOn.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("somOff", "assets/images/somOff.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("musicaOn", "assets/images/musicaOn.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("musicaOff", "assets/images/musicaOff.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
       this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
 
       this.load.audio("audio_lose", "assets/sounds/lose.mp3");
