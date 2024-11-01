@@ -53,7 +53,7 @@ class ModeOne extends Phaser.Scene {
         this.cacau.setScale(.3);
 
         //botão voltar
-        this.voltar = this.add.image(config.width / 4, (config.height/100)*10, "voltar");
+        this.voltar = this.add.image(config.width / 6, (config.height/100)*10, "voltar");
         this.voltar.setScale(.5);
         this.voltar.setInteractive();
         this.voltar.on('pointerdown', () => {
@@ -98,10 +98,10 @@ class ModeOne extends Phaser.Scene {
 
         
         if(this.soundOn){
-            this.soundButton = this.add.image(config.width / 2-40, (config.height/100)*90, "somOn");
+            this.soundButton = this.add.image((config.width /8)*6- 40, (config.height/100)*10, "somOn");
         }
         else{
-            this.soundButton = this.add.image(config.width / 2-40, (config.height/100)*90, "somOff");
+            this.soundButton = this.add.image((config.width /8)*6 - 40, (config.height/100)*10, "somOff");
         }
         if (config.width > config.height ){
         this.soundButton.setScale((config.width/config.height)/20);}
@@ -109,12 +109,12 @@ class ModeOne extends Phaser.Scene {
         this.soundButton.setScale(0.10);
         this.soundButton.on('pointerdown', () => {
             this.toggleSound();
-          });
+            });
         this.soundButton.setInteractive();
 
         if(this.musicOn){
-        this.musicButton = this.add.image(config.width / 2+40, (config.height/100)*90, "musicaOn");}
-        else{this.musicButton = this.add.image(config.width / 2+40, (config.height/100)*90, "musicaOff");}
+        this.musicButton = this.add.image((config.width /8)*6 + 40, (config.height/100)*10, "musicaOn");}
+        else{this.musicButton = this.add.image((config.width /8)*6 + 40, (config.height/100)*10, "musicaOff");}
         if (config.width > config.height ){
         this.musicButton.setScale((config.width/config.height)/20);}
         else {this.musicButton.setScale((config.height/config.width)/10);}

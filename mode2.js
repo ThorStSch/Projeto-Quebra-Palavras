@@ -58,7 +58,7 @@ class ModeTwo extends Phaser.Scene {
         this.espelho.setScale(1.3);
 
         //botão voltar
-        this.voltar = this.add.image(config.width / 4, (config.height/100)*10, "voltar");
+        this.voltar = this.add.image(config.width / 6, (config.height/100)*10, "voltar");
         this.voltar.setScale(.5);
         this.voltar.setInteractive();
         this.voltar.on('pointerdown', () => {
@@ -103,10 +103,10 @@ class ModeTwo extends Phaser.Scene {
         console.log('botões de som');    
         
         if(this.soundOn){
-            this.soundButton = this.add.image(config.width / 2-40, (config.height/100)*90, "somOn");
+            this.soundButton = this.add.image((config.width /8)*6- 40, (config.height/100)*10, "somOn");
         }
         else{
-            this.soundButton = this.add.image(config.width / 2-40, (config.height/100)*90, "somOff");
+            this.soundButton = this.add.image((config.width /8)*6 - 40, (config.height/100)*10, "somOff");
         }
         if (config.width > config.height ){
         this.soundButton.setScale((config.width/config.height)/20);}
@@ -118,8 +118,8 @@ class ModeTwo extends Phaser.Scene {
         this.soundButton.setInteractive();
 
         if(this.musicOn){
-        this.musicButton = this.add.image(config.width / 2+40, (config.height/100)*90, "musicaOn");}
-        else{this.musicButton = this.add.image(config.width / 2+40, (config.height/100)*90, "musicaOff");}
+        this.musicButton = this.add.image((config.width /8)*6 + 40, (config.height/100)*10, "musicaOn");}
+        else{this.musicButton = this.add.image((config.width /8)*6 + 40, (config.height/100)*10, "musicaOff");}
         if (config.width > config.height ){
         this.musicButton.setScale((config.width/config.height)/20);}
         else {this.musicButton.setScale((config.height/config.width)/10);}
@@ -273,7 +273,7 @@ class ModeTwo extends Phaser.Scene {
             if (config.width > config.height ){
                 this.frame1.setScale((config.width/config.height)/10+0.05);}
                 else {this.frame1.setScale((config.height/config.width)/4);}
-            this.frameTxt.setScale(1.6);
+            this.frameTxt.setScale(1.2);
             
         });
         
@@ -281,7 +281,7 @@ class ModeTwo extends Phaser.Scene {
             if (config.width > config.height ){
                 this.frame1.setScale((config.width/config.height)/10);}
                 else {this.frame1.setScale((config.height/config.width)/4);}
-            this.frameTxt.setScale(1.3);
+            this.frameTxt.setScale(1);
         });
 
         this.frame2.setInteractive().on('pointerdown', () => {
@@ -307,7 +307,7 @@ class ModeTwo extends Phaser.Scene {
             if (config.width > config.height ){
                 this.frame2.setScale((config.width/config.height)/10+0.05);}
                 else {this.frame2.setScale((config.height/config.width)/4);}
-            this.frameTxt2.setScale(1.6);
+            this.frameTxt2.setScale(1.2);
             
         });
         
@@ -315,7 +315,7 @@ class ModeTwo extends Phaser.Scene {
             if (config.width > config.height ){
                 this.frame2.setScale((config.width/config.height)/10);}
                 else {this.frame2.setScale((config.height/config.width)/4);}
-            this.frameTxt2.setScale(1.3);
+            this.frameTxt2.setScale(1);
         });  
 
         
@@ -342,7 +342,7 @@ class ModeTwo extends Phaser.Scene {
             if (config.width > config.height ){
                 this.frame3.setScale((config.width/config.height)/10+0.05);}
                 else {this.frame3.setScale((config.height/config.width)/4);}
-            this.frameTxt3.setScale(1.6);
+            this.frameTxt3.setScale(1.2);
             
         });
         
@@ -350,7 +350,7 @@ class ModeTwo extends Phaser.Scene {
             if (config.width > config.height ){
                 this.frame3.setScale((config.width/config.height)/10);}
                 else {this.frame3.setScale((config.height/config.width)/4);}
-            this.frameTxt3.setScale(1.3);
+            this.frameTxt3.setScale(1);
         });  
 
         this.confirm.setInteractive().on('pointerdown', () => {

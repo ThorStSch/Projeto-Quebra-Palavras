@@ -50,7 +50,7 @@ class Menu extends Phaser.Scene {
 
     this.title = this.add.image(config.width / 2, config.height / 4 - 50, "title");
     this.title.setScale(1.5)
-    this.versao = this.add.image((config.width / 4)*3, config.height / 4 - 50, "versao");
+    this.versao = this.add.image((config.width / 8)*6, config.height / 4, "versao");
     //this.versao.setScale(1.5)
     this.play = this.add.image(config.width / 2, config.height / 2 - 40, "play");
     this.play.setScale(1.5);
