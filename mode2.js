@@ -158,22 +158,23 @@ class ModeTwo extends Phaser.Scene {
         this.frameImagem = this.add.image((config.width/100)*50  , (config.height/100)*25 ,"frameOn");
         if (config.width > config.height ){
             this.frameImagem.setScale((config.width/config.height)/2);}
-            else {this.frameImagem.setScale((config.height/config.width)/2);}
+        else {this.frameImagem.setScale((config.height/config.width)/2);}
         //this.frameImagem.setScale(.7)
         this.frame1 = this.add.image((config.width/100)*5, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
             this.frame1.setScale((config.width/config.height)/10);}
-            else {this.frame1.setScale((config.height/config.width)/4);}
-        //this.frame1.setScale(.2)
+        else {this.frame1.setScale((config.height/config.width)/4);}
+        //this.frame1.setScale(.6)
         this.frame2 = this.add.image((config.width/100)*75, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
             this.frame2.setScale((config.width/config.height)/10);}
-            else {this.frame2.setScale((config.height/config.width)/4);}
+        else {this.frame2.setScale((config.height/config.width)/4);}
+        //this.frame2.setScale(.6)
         this.frame3 = this.add.image((config.width/100)*75, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
             this.frame3.setScale((config.width/config.height)/10);}
-            else {this.frame3.setScale((config.height/config.width)/4);}
-        //this.frame2.setScale(.2)
+        else {this.frame3.setScale((config.height/config.width)/4);}
+        //this.frame3.setScale(.6)
         this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
         if (config.width > config.height ){
             this.confirm.setScale((config.width/config.height));}
@@ -271,17 +272,17 @@ class ModeTwo extends Phaser.Scene {
         this.frame1.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
             if (config.width > config.height ){
-                this.frame1.setScale((config.width/config.height)/10+0.05);}
-                else {this.frame1.setScale((config.height/config.width)/4);}
-            this.frameTxt.setScale(1.2);
+                this.frame1.setScale((config.width/config.height)/12+0.05);}
+                else {this.frame1.setScale((config.height/config.width)/4.5);}
+            this.frameTxt.setScale(1.6);
             
         });
         
         this.frame1.setInteractive().on('pointerout', () => {
             if (config.width > config.height ){
-                this.frame1.setScale((config.width/config.height)/10);}
-                else {this.frame1.setScale((config.height/config.width)/4);}
-            this.frameTxt.setScale(1);
+                this.frame1.setScale((config.width/config.height)/12);}
+                else {this.frame1.setScale((config.height/config.width)/4.5);}
+            this.frameTxt.setScale(1.3);
         });
 
         this.frame2.setInteractive().on('pointerdown', () => {
@@ -305,17 +306,17 @@ class ModeTwo extends Phaser.Scene {
         this.frame2.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
             if (config.width > config.height ){
-                this.frame2.setScale((config.width/config.height)/10+0.05);}
-                else {this.frame2.setScale((config.height/config.width)/4);}
-            this.frameTxt2.setScale(1.2);
+                this.frame2.setScale((config.width/config.height)/12+0.05);}
+                else {this.frame2.setScale((config.height/config.width)/4.5);}
+            this.frameTxt2.setScale(1.6);
             
         });
         
         this.frame2.setInteractive().on('pointerout', () => {
             if (config.width > config.height ){
-                this.frame2.setScale((config.width/config.height)/10);}
-                else {this.frame2.setScale((config.height/config.width)/4);}
-            this.frameTxt2.setScale(1);
+                this.frame2.setScale((config.width/config.height)/12);}
+                else {this.frame2.setScale((config.height/config.width)/4.5);}
+            this.frameTxt2.setScale(1.3);
         });  
 
         
@@ -340,17 +341,17 @@ class ModeTwo extends Phaser.Scene {
         this.frame3.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
             if (config.width > config.height ){
-                this.frame3.setScale((config.width/config.height)/10+0.05);}
-                else {this.frame3.setScale((config.height/config.width)/4);}
-            this.frameTxt3.setScale(1.2);
+                this.frame3.setScale((config.width/config.height)/12+0.05);}
+                else {this.frame3.setScale((config.height/config.width)/4.5);}
+            this.frameTxt3.setScale(1.6);
             
         });
         
         this.frame3.setInteractive().on('pointerout', () => {
             if (config.width > config.height ){
-                this.frame3.setScale((config.width/config.height)/10);}
-                else {this.frame3.setScale((config.height/config.width)/4);}
-            this.frameTxt3.setScale(1);
+                this.frame3.setScale((config.width/config.height)/12);}
+                else {this.frame3.setScale((config.height/config.width)/4.5);}
+            this.frameTxt3.setScale(1.3);
         });  
 
         this.confirm.setInteractive().on('pointerdown', () => {
