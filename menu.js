@@ -50,6 +50,8 @@ class Menu extends Phaser.Scene {
 
     this.title = this.add.image(config.width / 2, config.height / 4 - 50, "title");
     this.title.setScale(1.5)
+    this.versao = this.add.image((config.width / 4)*3, config.height / 4 - 50, "versao");
+    //this.versao.setScale(1.5)
     this.play = this.add.image(config.width / 2, config.height / 2 - 40, "play");
     this.play.setScale(1.5);
     this.play.setInteractive();
@@ -89,12 +91,12 @@ class Menu extends Phaser.Scene {
 
     this.modesGroup = this.add.container(config.width / 2, config.height / 2);
     this.easy = this.add.image(0,-60, "easy");
-    //this.normal = this.add.image(0,0, "normal");
+    this.normal = this.add.image(0,0, "normal");
     //this.hard = this.add.image(0,60, "hard");
 
     
     this.modesGroup.add(this.easy);
-    //this.modesGroup.add(this.normal);
+    this.modesGroup.add(this.normal);
     //this.modesGroup.add(this.hard);
     if (config.width > config.height ){
         this.modesGroup.setScale((config.width/config.height));}
@@ -179,7 +181,6 @@ class Menu extends Phaser.Scene {
                 this.scene.switch("mode1");
         });
 
-        // Lógica para a seleção de opções
         this.easy.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
             this.easy.setScale(1.2);
@@ -190,38 +191,24 @@ class Menu extends Phaser.Scene {
             this.easy.setScale(1);
         
         });
-        /*
-        this.normal.setInteractive().on('pointerout', () => {
-            this.normal.setScale(1);
-        });
 
-        this.hard.setInteractive().on('pointerout', () => {
-            this.hard.setScale(1);
+        this.normal.setInteractive().on('pointerdown', () => {
+            // Ação para a Opção 2
+                console.log('Opção 2 selecionada');
+                this.scene.switch("mode2");
         });
 
         this.normal.setInteractive().on('pointerover', () => {
             this.mouseOver.play(this.somConfig);
             this.normal.setScale(1.2);
-        });
-
-        this.hard.setInteractive().on('pointerover', () => {
-            this.mouseOver.play(this.somConfig);
-            this.hard.setScale(1.2);
-        });
-
-        this.normal.setInteractive().on('pointerdown', () => {
-            // Ação para a Opção 2
-            
-                console.log('Opção 2 selecionada');
-                this.scene.start("mode2");
             
         });
 
-        this.hard.setInteractive().on('pointerdown', () => {
-                console.log('Opção 3 selecionada');
-                this.scene.start("mode3");
+        this.normal.setInteractive().on('pointerout', () => {
+            this.normal.setScale(1);
+        
         });
-        */
+        
     }
 
     toggleMusic() {

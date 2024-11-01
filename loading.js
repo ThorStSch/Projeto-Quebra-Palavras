@@ -147,6 +147,67 @@ class Loading extends Phaser.Scene {
         frameHeight: 16
       })
 
+      this.load.image("camisa", "assets/images/camisa.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("borracha", "assets/images/borracha.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("mochila", "assets/images/mochila.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("relogio", "assets/images/relogio.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("tesoura", "assets/images/tesoura.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("caderno", "assets/images/caderno.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("janela", "assets/images/janela.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("cenoura", "assets/images/cenoura.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("martelo", "assets/images/martelo.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("espelho", "assets/images/espelho.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("versao", "assets/images/versao.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+      this.load.image("voltar", "assets/images/voltar.png",{
+        frameWidth: 16,
+        frameHeight: 16
+      })
+
+
       this.load.bitmapFont("pixelFont", "assets/font/font.png", "assets/font/font.xml");
 
       this.load.audio("audio_lose", "assets/sounds/lose.mp3");

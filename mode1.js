@@ -52,6 +52,16 @@ class ModeOne extends Phaser.Scene {
         this.cacau.setVisible(false);
         this.cacau.setScale(.3);
 
+        //botão voltar
+        this.voltar = this.add.image(config.width / 4, (config.height/100)*10, "voltar");
+        this.voltar.setScale(.5);
+        this.voltar.setInteractive();
+        this.voltar.on('pointerdown', () => {
+            this.scene.switch("menu");
+            this.scene.stop();
+            return;
+          });
+
         this.mouseOver = this.sound.add("audio_mouseOver");
         this.selectSound = this.sound.add("audio_select");
         this.loseSound = this.sound.add("audio_lose");
