@@ -162,18 +162,18 @@ class ModeTwo extends Phaser.Scene {
         //this.frameImagem.setScale(.7)
         this.frame1 = this.add.image((config.width/100)*5, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
-            this.frame1.setScale((config.width/config.height)/10);}
-        else {this.frame1.setScale((config.height/config.width)/4);}
+            this.frame1.setScale((config.width/config.height)/12);}
+        else {this.frame1.setScale((config.height/config.width)/4.5);}
         //this.frame1.setScale(.6)
         this.frame2 = this.add.image((config.width/100)*75, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
-            this.frame2.setScale((config.width/config.height)/10);}
-        else {this.frame2.setScale((config.height/config.width)/4);}
+            this.frame2.setScale((config.width/config.height)/12);}
+        else {this.frame2.setScale((config.height/config.width)/4.5);}
         //this.frame2.setScale(.6)
         this.frame3 = this.add.image((config.width/100)*75, (config.height/100)*60,"frameOn");
         if (config.width > config.height ){
-            this.frame3.setScale((config.width/config.height)/10);}
-        else {this.frame3.setScale((config.height/config.width)/4);}
+            this.frame3.setScale((config.width/config.height)/12);}
+        else {this.frame3.setScale((config.height/config.width)/4.5);}
         //this.frame3.setScale(.6)
         this.confirm = this.add.image(config.width / 2, (config.height/100)*78  , "confirmar");
         if (config.width > config.height ){
